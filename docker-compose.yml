@@ -1,0 +1,20 @@
+---
+version: "3.5"
+services:
+  syncthing:
+    image: ${IMAGE}:${TAG}
+    container_name: ${CONTAINER_NAME}
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TIMEZONE}
+      - UMASK_SET=<022>
+    volumes:
+      - ${VOLUME_CONFIG}:/config
+      - ${VOLUME_DATA1}:/data1
+      - ${VOLUME_DATA2}:/data2
+    ports:
+      - ${PORT_WEB_UI}:8384
+      - ${PORT_SYNC}:22000
+      - ${PORT_DISCOVERY_BROADCAST}:21027/udp
+    restart: unless-stopped
