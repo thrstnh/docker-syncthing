@@ -11,8 +11,8 @@ services:
       - UMASK_SET=<022>
     volumes:
       - ${VOLUME_CONFIG}:/config
-      - ${VOLUME_DATA1}:/data1
-      - ${VOLUME_DATA2}:/data2
+      - ${VOLUME_USER1}:/user1
+      - ${VOLUME_USER2}:/user2
     ports:
       - ${PORT_WEB_UI}:8384
       - ${PORT_SYNC}:22000
